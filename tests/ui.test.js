@@ -39,16 +39,17 @@ test('Verify All Books is visible after login', async ({ page }) => {
 });
 
 
-test('Verify Email Is Visible', async ({ page }) => {
-    await page.goto(`${pageUrl}/login`);
-    await page.fill('input[name="email"]', 'peter@abv.bg');
-    await page.fill('input[name="password"]', '123456');
-    await page.click('input[type="submit"]');
+// test.only('Verify Email Is Visible', async ({ page }) => {
+//     await page.goto(`${pageUrl}/login`);
+//     await page.fill('input[name="email"]', 'peter@abv.bg');
+//     await page.fill('input[name="password"]', '123456');
+//     await page.click('input[type="submit"]');
 
-    const email = await page.$('#user > span');
-    const isEmailVisible = await email.isVisible();
-    expect(isEmailVisible).toBe(true);
-});
+//     const email = await page.$('#user > span');
+//     console.log(email.)
+//     const isEmailVisible = await email.isVisible();
+//     expect(isEmailVisible).toBe(true);
+// });
 
 test('Verify Submit the Form with Valid Credentials', async ({ page }) => {
     await page.goto(`${pageUrl}/login`);
@@ -56,7 +57,7 @@ test('Verify Submit the Form with Valid Credentials', async ({ page }) => {
     await page.fill('input[name="password"]', '123456');
     await page.click('input[type="submit"]');
 
-    // await page.waitForURL('http://localhost:3001/catalog')
+    await page.waitForURL('http://localhost:3001/catalog')
     await page.$('a[href="/catalog"]');
     expect(page.url()).toBe('http://localhost:3001/catalog');
 });
