@@ -41,8 +41,6 @@ jobs:
         with:
           service-id: ${{ secrets.RENDER_BACKEND_KEY}}
           api-key: ${{ secrets.RENDER_API_KEY }}
-      - name: Wait 120 seconds
-        run: sleep 120
 
   deploy-frontend:
     needs: deploy-backend
@@ -53,5 +51,3 @@ jobs:
         with:
           service-id: ${{ secrets.RENDER_FRONTEND_KEY}}
           api-key: ${{ secrets.RENDER_API_KEY }}
-      - name: Wait 120 seconds
-        run: sleep 120
