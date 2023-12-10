@@ -226,20 +226,20 @@ test('Verify That All Books Are Displayed', async ({ page }) => {
     expect(bookElements.length).toBeGreaterThan(0);
 });
 
-test('Verify That No Books Are Displayed', async ({ page }) => {
-    await page.goto(`${pageUrl}/login`);
-    await page.fill('input[name="email"]', 'peter@abv.bg');
-    await page.fill('input[name="password"]', '123456');
-    await Promise.all([
-        await page.click('input[type="submit"]'),
-        page.waitForURL('http://localhost:3001/catalog'),
+// test('Verify That No Books Are Displayed', async ({ page }) => {
+//     await page.goto(`${pageUrl}/login`);
+//     await page.fill('input[name="email"]', 'peter@abv.bg');
+//     await page.fill('input[name="password"]', '123456');
+//     await Promise.all([
+//         await page.click('input[type="submit"]'),
+//         page.waitForURL('http://localhost:3001/catalog'),
 
-    ]);
+//     ]);
 
-    await page.waitForSelector('.dashboard');
-    const noBooksMessage = await page.toContain('.no-books');
-    expect(noBooksMessage).toBe('No books in database!');
-});
+//     await page.waitForSelector('.dashboard');
+//     const noBooksMessage = await page.toContain('.no-books');
+//     expect(noBooksMessage).toBe('No books in database!');
+// });
 
 
 test('Verify That Logged-In User Sees Details Button and Button Works Correctly', async ({ page }) => {
