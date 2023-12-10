@@ -56,7 +56,7 @@ test('Verify Submit the Form with Valid Credentials', async ({ page }) => {
     await page.fill('input[name="password"]', '123456');
     await page.click('input[type="submit"]');
 
-    await page.waitForURL('http://localhost:3001/catalog')
+    // await page.waitForURL('http://localhost:3001/catalog')
     await page.$('a[href="/catalog"]');
     expect(page.url()).toBe('http://localhost:3001/catalog');
 });
