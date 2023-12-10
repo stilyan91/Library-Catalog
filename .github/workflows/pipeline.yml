@@ -21,6 +21,8 @@ jobs:
         run: npm install
       - name: Install PlayWright
         run: npx playwright install
+      - name: Change the config value
+        run: echo "export const settings = { host:\"http://localhost:3030\" };" > src/config.js
       - name: Start Backend
         run: npm run start-backend &
       - name: Wait 5 seconds
